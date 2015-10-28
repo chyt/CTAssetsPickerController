@@ -95,7 +95,6 @@
     [super viewDidLoad];
     [self setupViews];
     [self addNotificationObserver];
-    self.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)dealloc

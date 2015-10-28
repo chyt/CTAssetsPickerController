@@ -82,6 +82,10 @@
     [self setupDefaultAssetCollection];
     [self setupFetchResults];
     [self registerChangeObserver];
+    
+    NSDictionary *navBarTitleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor blackColor] };
+    [self.navigationController.navigationBar setTitleTextAttributes:navBarTitleTextAttributes];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
