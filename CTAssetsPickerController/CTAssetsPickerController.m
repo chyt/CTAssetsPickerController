@@ -118,7 +118,18 @@ NSString * const CTAssetsPickerDidDeselectAssetNotification = @"CTAssetsPickerDi
         return nil;
 }
 
+# pragma mark - Selection methods
+- (void)selectAsset:(ALAsset *)asset {
+    if(![self.selectedAssets containsObject:asset]) {
+        [self insertObject:asset inSelectedAssetsAtIndex:self.countOfSelectedAssets];
+    }
+}
 
+- (void)deselectAsset:(ALAsset *)asset {
+    if([self.selectedAssets containsObject:asset]) {
+        [self removeObjectFromSelectedAssetsAtIndex:[self.selectedAssets indexOfObject:asset]];
+    }
+}
 
 #pragma mark - Init properties
 

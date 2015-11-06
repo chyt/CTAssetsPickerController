@@ -114,6 +114,11 @@
 
 - (void)bind:(PHFetchResult *)result
 {
+    UIButton *selectAll = [[UIButton alloc] initWithFrame:CGRectMake(0,0,100,44)];
+    selectAll.backgroundColor = [UIColor redColor];
+    [self addSubview:selectAll];
+    
+    
     NSNumberFormatter *nf = [NSNumberFormatter new];
     
     NSString *numberOfVideos = @"";
