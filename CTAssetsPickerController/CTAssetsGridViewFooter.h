@@ -37,6 +37,8 @@
 @property (nonatomic, strong) CTAssetsPickerController *picker;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+- (void)bind:(PHFetchResult *)result;
+
 - (void)bind:(PHFetchResult *)result withPicker:(CTAssetsPickerController *)picker andCollectionView:(UICollectionView *)collectionView;
 
 @end
