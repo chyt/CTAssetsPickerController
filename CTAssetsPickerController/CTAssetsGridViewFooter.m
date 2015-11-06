@@ -140,12 +140,14 @@
     UIButton *selectAll = [UIButton buttonWithType:UIButtonTypeCustom];
     selectAll.frame = CGRectMake(0,0,150,self.frame.size.height);
     [selectAll setTitle:@"Select All" forState:UIControlStateNormal];
+    [selectAll setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [selectAll addTarget:self action:@selector(selectAll) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:selectAll];
     
     UIButton *deselectAll = [UIButton buttonWithType:UIButtonTypeCustom];
     deselectAll.frame = CGRectMake(self.frame.size.width-150,0,150,self.frame.size.height);
     [deselectAll setTitle:@"Deselect All" forState:UIControlStateNormal];
+    [deselectAll setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [deselectAll addTarget:self action:@selector(deselectAll) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:deselectAll];
     
