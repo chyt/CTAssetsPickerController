@@ -114,16 +114,31 @@
 
 - (void)selectAll {
     NSLog(@"select all called");
+    
+    NSInteger assetCount = [self.result count];
+    NSLog(@"assetCount: %ld ...", (long)assetCount);
+    
+    for (int i=0; i<assetCount; i++) {
+        PHAsset *asset = [self.result objectAtIndex:i];
+        if(asset) {
+            [self.picker selectAsset:asset];
+        }
+    }    
+    [self.collectionView reloadData];
 }
 
 - (void)deselectAll {
     NSLog(@"deselect all called");
 }
 
-- (void)bind:(PHFetchResult *)result
+- (void)bind:(PHFetchResult *)result withPicker:(CTAssetsPickerController *)picker andCollectionView:(UICollectionView *)collectionView
 {
+    self.result = result;
+    self.picker = picker;
+    self.collectionView = collectionView;
+    
     UIButton *selectAll = [UIButton buttonWithType:UIButtonTypeCustom];
-    selectAll.frame = CGRectMake(0,0,150,self.frame.size.height)
+    selectAll.frame = CGRectMake(0,0,150,self.frame.size.height);
     [selectAll setTitle:@"Select All" forState:UIControlStateNormal];
     [selectAll addTarget:self action:@selector(selectAll) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:selectAll];

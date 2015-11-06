@@ -33,6 +33,10 @@
 @property (nonatomic, weak) UIFont *font UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak) UIColor *textColor UI_APPEARANCE_SELECTOR;
 
-- (void)bind:(PHFetchResult *)result;
+@property (nonatomic, strong) PHFetchResult *result;
+@property (nonatomic, strong) CTAssetsPickerController *picker;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+- (void)bind:(PHFetchResult *)result withPicker:(CTAssetsPickerController *)picker andCollectionView:(UICollectionView *)collectionView;
 
 @end

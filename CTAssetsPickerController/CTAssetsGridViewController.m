@@ -667,7 +667,7 @@ NSString * const CTAssetsGridViewFooterIdentifier = @"CTAssetsGridViewFooterIden
                                        withReuseIdentifier:CTAssetsGridViewFooterIdentifier
                                               forIndexPath:indexPath];
     
-    [footer bind:self.fetchResult];
+    [footer bind:self.fetchResult withPicker:self.picker andCollectionView:self.collectionView];
     
     self.footer = footer;
     
