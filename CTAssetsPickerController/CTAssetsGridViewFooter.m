@@ -114,10 +114,9 @@
 
 - (void)bind:(PHFetchResult *)result
 {
-    UIButton *selectAll = [[UIButton alloc] initWithFrame:CGRectMake(0,0,100,44)];
+    UIButton *selectAll = [[UIButton alloc] initWithFrame:CGRectMake(0,0,200,self.frame.size.height)];
     selectAll.backgroundColor = [UIColor redColor];
     [self addSubview:selectAll];
-    
     
     NSNumberFormatter *nf = [NSNumberFormatter new];
     
