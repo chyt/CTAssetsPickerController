@@ -26,7 +26,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
-
+#import "CTAssetsPickerController.h"
 
 @interface CTAssetsGridViewFooter : UICollectionReusableView
 

@@ -113,11 +113,7 @@
 }
 
 - (void)selectAll {
-    NSLog(@"select all called");
-    
     NSInteger assetCount = [self.result count];
-    NSLog(@"assetCount: %ld ...", (long)assetCount);
-    
     for (int i=0; i<assetCount; i++) {
         PHAsset *asset = [self.result objectAtIndex:i];
         if(asset) {
@@ -128,7 +124,14 @@
 }
 
 - (void)deselectAll {
-    NSLog(@"deselect all called");
+    NSInteger assetCount = [self.result count];
+    for (int i=0; i<assetCount; i++) {
+        PHAsset *asset = [self.result objectAtIndex:i];
+        if(asset) {
+            [self.picker deselectAsset:asset];
+        }
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)bind:(PHFetchResult *)result {
