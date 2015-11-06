@@ -116,7 +116,7 @@
     NSInteger assetCount = [self.result count];
     for (int i=0; i<assetCount; i++) {
         PHAsset *asset = [self.result objectAtIndex:i];
-        if(asset) {
+        if(asset && ![self.picker.selectedAssets containsObject:asset]) {
             [self.picker selectAsset:asset];
         }
     }    
@@ -127,7 +127,7 @@
     NSInteger assetCount = [self.result count];
     for (int i=0; i<assetCount; i++) {
         PHAsset *asset = [self.result objectAtIndex:i];
-        if(asset) {
+        if(asset && [self.picker.selectedAssets containsObject:asset]) {
             [self.picker deselectAsset:asset];
         }
     }
