@@ -27,8 +27,9 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import "CTAssetsPickerController.h"
+#import "MBProgressHUD.h"
 
-@interface CTAssetsGridViewFooter : UICollectionReusableView
+@interface CTAssetsGridViewFooter : UICollectionReusableView <MBProgressHUDDelegate>
 
 @property (nonatomic, weak) UIFont *font UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak) UIColor *textColor UI_APPEARANCE_SELECTOR;

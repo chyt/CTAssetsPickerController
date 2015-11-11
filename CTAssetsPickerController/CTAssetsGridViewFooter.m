@@ -113,17 +113,37 @@
 }
 
 - (void)selectAll {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.picker.view];
+    [self.picker.view addSubview:hud];
+    hud.delegate = self;
+    hud.labelText = @"Selecting All Images";
+    [hud showWhileExecuting:@selector(selectAllExecute) onTarget:self withObject:nil animated:YES];
+}
+
+- (void)selectAllExecute {
+    [NSThread sleepForTimeInterval:0.1];
     NSInteger assetCount = [self.result count];
     for (int i=0; i<assetCount; i++) {
         PHAsset *asset = [self.result objectAtIndex:i];
         if(asset && ![self.picker.selectedAssets containsObject:asset]) {
             [self.picker selectAsset:asset];
         }
-    }    
-    [self.collectionView reloadData];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
 }
 
 - (void)deselectAll {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.picker.view];
+    [self.picker.view addSubview:hud];
+    hud.delegate = self;
+    hud.labelText = @"Deselecting All Images";
+    [hud showWhileExecuting:@selector(deselectAllExecute) onTarget:self withObject:nil animated:YES];
+}
+
+- (void)deselectAllExecute {
+    [NSThread sleepForTimeInterval:0.1];
     NSInteger assetCount = [self.result count];
     for (int i=0; i<assetCount; i++) {
         PHAsset *asset = [self.result objectAtIndex:i];
@@ -131,7 +151,9 @@
             [self.picker deselectAsset:asset];
         }
     }
-    [self.collectionView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
 }
 
 - (void)bind:(PHFetchResult *)result {
